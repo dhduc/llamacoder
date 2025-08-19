@@ -53,4 +53,5 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /root/llamacoder && source ~/.bashrc && bash deploy.sh
+            cd /root/llamacoder
+            /root/.nvm/versions/node/v22.18.0/bin/pm2 restart llamacoder || /root/.nvm/versions/node/v22.18.0/bin/pm2 start npm --name "llamacoder" -- start
