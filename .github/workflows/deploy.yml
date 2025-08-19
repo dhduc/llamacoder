@@ -53,5 +53,4 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ${{ secrets.REMOTE_PATH }}
-            pm2 restart llamacoder || pm2 start npm --name "llamacoder" -- start
+            cd /root/llamacoder && pm2 restart llamacoder || pm2 start npm --name "llamacoder" -- start
