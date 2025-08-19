@@ -54,4 +54,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /root/llamacoder
-            /root/.nvm/versions/node/v22.18.0/bin/pm2 restart llamacoder || /root/.nvm/versions/node/v22.18.0/bin/pm2 start npm --name "llamacoder" -- start
+            export PATH=/root/.nvm/versions/node/v22.18.0/bin:$PATH
+            source ~/.bashrc
+            pm2 restart llamacoder || pm2 start npm --name "llamacoder" -- start
