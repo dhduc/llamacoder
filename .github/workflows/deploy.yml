@@ -22,29 +22,29 @@ jobs:
         run: |
           echo "${{ secrets.ENV_FILE }}" > .env
           
-      - name: Install Dependencies
-        run: npm ci
+      # - name: Install Dependencies
+      #   run: npm ci
         
-      - name: Build Application
-        run: npm run build
-        env:
-          # Add any required environment variables for build
-          NODE_ENV: production
+      # - name: Build Application
+      #   run: npm run build
+      #   env:
+      #     # Add any required environment variables for build
+      #     NODE_ENV: production
           
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      # - name: Install SSH Key
+      #   uses: shimataro/ssh-key-action@v2
+      #   with:
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
           
-      - name: Deploy with rsync
-        run: |
-          rsync -avz --delete \
-            --exclude='.git' \
-            --exclude='node_modules' \
-            --exclude='.github' \
-            --exclude='.env' \
-            ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_PATH }}
+      # - name: Deploy with rsync
+      #   run: |
+      #     rsync -avz --delete \
+      #       --exclude='.git' \
+      #       --exclude='node_modules' \
+      #       --exclude='.github' \
+      #       --exclude='.env' \
+      #       ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_PATH }}
             
       - name: Restart PM2
         uses: appleboy/ssh-action@v1.0.0
@@ -53,4 +53,4 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /root/llamacoder && pm2 restart llamacoder || pm2 start npm --name "llamacoder" -- start
+            cd /root/llamacoder && source ~/.bashrc && pm2 restart llamacoder || pm2 start npm --name "llamacoder" -- start
