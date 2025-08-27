@@ -9,8 +9,10 @@ CREATE TABLE "Chat" (
     "quality" TEXT NOT NULL,
     "prompt" TEXT NOT NULL,
     "title" TEXT NOT NULL,
+    "screenshot" TEXT NOT NULL DEFAULT '',
     "llamaCoderVersion" TEXT NOT NULL DEFAULT 'v2',
     "shadcn" BOOLEAN NOT NULL,
+    "isPublic" BOOLEAN NOT NULL DEFAULT TRUE,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Chat_pkey" PRIMARY KEY ("id")

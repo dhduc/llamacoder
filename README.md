@@ -28,3 +28,9 @@
 ## Contributing
 
 For contributing to the repo, please see the [contributing guide](./CONTRIBUTING.md)
+
+## ORM
+
+npx prisma generate
+
+npx prisma migrate deploy

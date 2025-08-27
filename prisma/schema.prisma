@@ -24,8 +24,10 @@ model Chat {
   quality           String
   prompt            String
   title             String
+  screenshot        String
   llamaCoderVersion String    @default("v2")
   shadcn            Boolean
+  isPublic          Boolean
   messages          Message[]
   createdAt         DateTime  @default(now())
 }
