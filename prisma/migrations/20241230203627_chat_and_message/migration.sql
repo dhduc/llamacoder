@@ -5,11 +5,12 @@ DROP TABLE IF EXISTS "Chat";
 -- CreateTable
 CREATE TABLE "Chat" (
     "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
     "model" TEXT NOT NULL,
     "quality" TEXT NOT NULL,
     "prompt" TEXT NOT NULL,
     "title" TEXT NOT NULL,
-    "screenshot" TEXT NOT NULL DEFAULT '',
+    "screenshot" TEXT,
     "llamaCoderVersion" TEXT NOT NULL DEFAULT 'v2',
     "shadcn" BOOLEAN NOT NULL,
     "isPublic" BOOLEAN NOT NULL DEFAULT TRUE,
@@ -35,3 +36,6 @@ CREATE INDEX "Message_chatId_idx" ON "Message"("chatId");
 
 -- AddForeignKey
 ALTER TABLE "Message" ADD CONSTRAINT "Message_chatId_fkey" FOREIGN KEY ("chatId") REFERENCES "Chat"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Chat" ADD CONSTRAINT "Chat_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE CASCADE ON UPDATE CASCADE;

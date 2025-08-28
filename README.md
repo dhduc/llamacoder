@@ -34,3 +34,11 @@ For contributing to the repo, please see the [contributing guide](./CONTRIBUTING
 npx prisma generate
 
 npx prisma migrate deploy
+
+after change schema.prisma
+
+npx prisma migrate dev --create-only --name <migration-name>
+
+prisma migrate reset
+
+prisma migrate format
