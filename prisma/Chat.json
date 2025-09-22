@@ -1,0 +1,12 @@
+[
+   {
+      "id":"zYedPBtwXSQXWj6K",
+      "model":"Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8",
+      "quality":"low",
+      "prompt":"A landing page for a SaaS business that includes a clear value proposition in a prominent hero section, concise feature overviews, testimonials, pricing, and a clear call-to-action button leading to a free trial or demo.",
+      "title":"SaaS Landing Page Template",
+      "llamaCoderVersion":"v2",
+      "shadcn":true,
+      "createdAt":"2025-09-22 04:18:13.17"
+   }
+]
