@@ -28,3 +28,15 @@
 ## Contributing
 
 For contributing to the repo, please see the [contributing guide](./CONTRIBUTING.md)
+
+## ORM
+
+npx prisma generate
+
+npx prisma migrate deploy
+
+**after change schema.prisma**
+
+npx prisma migrate dev --create-only --name <migration-name>
+
+npx prisma migrate reset
